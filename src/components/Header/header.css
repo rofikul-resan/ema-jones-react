@@ -1,0 +1,14 @@
+.header{
+    background: #1C2B35;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 100px;
+}
+
+.nav-link a{
+    color: white;
+    text-decoration: none;
+    margin:0 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
