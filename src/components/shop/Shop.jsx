@@ -15,12 +15,14 @@ const Shop = () => {
     return (
         <div className='shop'>
             <div className='shop-contener'>
+                <div className="product-Items">
                 {
                     cardsData.map(productData => <ProductCard 
                         key={productData.id} 
                         productData={productData}
                         ></ProductCard>)
                 }
+                </div>
             </div>
             <div className="cart-contener">
 
