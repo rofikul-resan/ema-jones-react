@@ -1,0 +1,33 @@
+.error-icon {
+    color: #ffd43b;
+}
+
+.error-contener {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    grid-template-rows: 1fr;
+}
+
+.error-contener h1 {
+    font-size: 60px;
+    text-align: center;
+    font-style: italic;
+}
+
+.error-contener p {
+    width: 300px;
+    text-align: center;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.back-home-btn {
+    background: #0045d6;
+    color: aliceblue;
+    padding: 8px 20px;
+    border: 0;
+    border-radius: 9999px;
+    display: block;
+    margin: 50px auto;
+}

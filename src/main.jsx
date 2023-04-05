@@ -6,7 +6,9 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Shop from "./components/shop/Shop";
 import Orders from "./components/shop/orders/Orders";
 import cartProductLoader from "./dataLoder/cartData";
-
+import Login from "./components/logIn/Login";
+import Error404 from "./components/error/Error404";
+import { FadeLoader } from "react-spinners";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
         loader: cartProductLoader,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "*",
+    element: <Error404 />,
   },
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(

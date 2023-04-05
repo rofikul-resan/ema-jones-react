@@ -3,10 +3,14 @@ import { addToDb, getShoppingCart } from "../../utilities/fakedb";
 import ProductCart from "./cart-contener/ProductCart";
 import ProductCard from "./ProductCard/ProductCard";
 import "./Shop.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const Shop = () => {
   const [cardsData, setCardsData] = useState([]);
   const [cart, setCart] = useState([]);
+  const navigation = useNavigate();
 
   useEffect(() => {
     fetch("./fakeData/products.json")
@@ -53,7 +57,14 @@ const Shop = () => {
           ))}
         </div>
       </div>
-      <ProductCart cartData={cart}></ProductCart>
+      <ProductCart cartData={cart}>
+        <button
+          onClick={() => navigation("/Order-Review")}
+          className="proceed-btn"
+        >
+          Review Order <FontAwesomeIcon icon={faArrowRight} />
+        </button>
+      </ProductCart>
     </div>
   );
 };

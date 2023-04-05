@@ -1,7 +1,9 @@
 import React from "react";
 import "./productCart.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 const ProductCart = (props) => {
-  const { cartData } = props;
+  const { cartData, clearCartData, children } = props;
   const totalQuantity = cartData.reduce(
     (pQuantity, cQuantity) => cQuantity.quantity + pQuantity,
     0
@@ -27,6 +29,12 @@ const ProductCart = (props) => {
         <p>Tax: ${tax.toFixed(2)} </p>
         <h5>Grand Total: ${(totalPrice + totalShipping + tax).toFixed(2)}</h5>
       </div>
+
+      <button onClick={clearCartData} className="clear-cart-btn">
+        <span>Clear Cart</span>
+        <FontAwesomeIcon icon={faTrashAlt} />
+      </button>
+      {children}
     </div>
   );
 };
