@@ -1,16 +1,18 @@
-.shop{
+.shop {
     display: grid;
     grid-template-columns: 4fr 1fr;
 }
 
-.product-Items{
+.product-Items {
     display: grid;
-    grid-template-columns: repeat(3 , 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
     padding: 30px 100px;
 }
 
-.cart-contener{
+.cart-contener {
+    position: sticky;
+    top: 67px;
     background: #ffe0b3;
     height: calc(100vh - 67px);
 }
@@ -18,7 +20,8 @@
 .shop-contener::-webkit-scrollbar {
     display: none;
 }
-.shop-contener{
+
+.shop-contener {
     height: calc(100vh - 67px);
     overflow: scroll;
     -ms-overflow-style: none;
