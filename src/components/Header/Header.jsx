@@ -34,6 +34,12 @@ const Header = () => {
         >
           Login
         </NavLink>
+        <NavLink
+          className={({ isActive }) => (isActive ? "active" : "disable")}
+          to="/singUp"
+        >
+          Sing up
+        </NavLink>
       </div>
     </nav>
   );

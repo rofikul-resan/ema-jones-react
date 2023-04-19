@@ -9,6 +9,7 @@ import cartProductLoader from "./dataLoder/cartData";
 import Login from "./components/logIn/Login";
 import Error404 from "./components/error/Error404";
 import { FadeLoader } from "react-spinners";
+import SingUp from "./components/logIn/singUp/SingUp";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,12 +24,17 @@ const router = createBrowserRouter([
         element: <Orders></Orders>,
         loader: cartProductLoader,
       },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/singUp",
+        element: <SingUp />,
+      },
     ],
   },
-  {
-    path: "/login",
-    element: <Login />,
-  },
+
   {
     path: "*",
     element: <Error404 />,

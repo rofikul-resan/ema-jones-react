@@ -1,0 +1,48 @@
+.from-contener {
+    border: 1px solid #95A0A7;
+    border-radius: 8px;
+    width: 400px;
+    margin: 50px auto;
+    padding: 42px;
+    box-shadow: -12px 12px 6px -2px #FFE0B3;
+}
+
+.from-contener h1 {
+    text-align: center;
+    margin-bottom: 29px;
+}
+
+.from-control {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.from-control label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 300;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.from-control input {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 0.5px solid gray;
+}
+
+.btn-submit {
+    background: rgba(255, 153, 0, 0.3);
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.btn-submit:hover {
+    background: rgba(255, 153, 0, 0.4);
+}
