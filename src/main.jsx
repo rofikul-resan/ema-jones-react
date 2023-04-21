@@ -8,8 +8,10 @@ import Orders from "./components/shop/orders/Orders";
 import cartProductLoader from "./dataLoder/cartData";
 import Login from "./components/logIn/Login";
 import Error404 from "./components/error/Error404";
-import { FadeLoader } from "react-spinners";
 import SingUp from "./components/logIn/singUp/SingUp";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AuthProvider from "./components/provider/AuthProvider";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,6 +44,9 @@ const router = createBrowserRouter([
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+      <ToastContainer />
+    </AuthProvider>
   </React.StrictMode>
 );

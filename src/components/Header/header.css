@@ -25,9 +25,47 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.btn {
-    background: #2cca26;
+.nav-btn {
+    display: inline-block;
+    background: #158011;
     color: antiquewhite;
-    font-weight: 700;
+    border-radius: 8px;
+    padding: 10px;
 
+}
+
+.nav-btn:hover {
+    background: #0f5c0c;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: start;
+        padding: 10px 40px;
+    }
+
+    .nav-link {
+        width: 100%;
+    }
+
+    .nav-btn {
+        padding: 5px 40px;
+    }
+
+    .nav-btn>a {
+        margin: 5px !important;
+    }
+
+    .nav-link a {
+        display: block;
+        margin: 20px 0;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 800px) {
+    .header {
+        padding: 10px
+    }
 }
