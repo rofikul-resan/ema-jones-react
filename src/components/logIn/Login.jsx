@@ -1,5 +1,6 @@
 import React from "react";
 import "./login.css";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -19,6 +20,17 @@ const Login = () => {
           Log In
         </button>
       </form>
+      <p className="option-text">
+        New to Ema-john? <Link to={"/singUp"}>Create New Account</Link>{" "}
+      </p>
+
+      <div className="or-line">
+        <p>or</p>
+      </div>
+      <button className="google-btn">
+        <img src="./google.svg" alt="" />
+        <p> Continue with Google</p>
+      </button>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
-import "./singUp.css";
+import "../login.css";
+import { Link } from "react-router-dom";
 
 const SingUp = () => {
   return (
@@ -32,6 +33,17 @@ const SingUp = () => {
             Sing Up
           </button>
         </form>
+        <p className="option-text">
+          Already have an account? <Link to={"/singUp"}>Login</Link>{" "}
+        </p>
+
+        <div className="or-line">
+          <p>or</p>
+        </div>
+        <button className="google-btn">
+          <img src="./google.svg" alt="" />
+          <p> Continue with Google</p>
+        </button>
       </div>
     </div>
   );

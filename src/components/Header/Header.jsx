@@ -1,9 +1,10 @@
 import React from "react";
 import logo from "../../assets/images/Logo.svg";
 import "./header.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 const Header = () => {
+  const location = useLocation();
   return (
     <nav className="header">
       <div>
@@ -28,18 +29,21 @@ const Header = () => {
         >
           Manage Inventory
         </NavLink>
-        <NavLink
-          className={({ isActive }) => (isActive ? "active" : "disable")}
-          to="/Login"
-        >
-          Login
-        </NavLink>
-        <NavLink
-          className={({ isActive }) => (isActive ? "active" : "disable")}
-          to="/singUp"
-        >
-          Sing up
-        </NavLink>
+        {location.pathname !== "/login" ? (
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : "disable")}
+            to="/login"
+          >
+            Login
+          </NavLink>
+        ) : (
+          <NavLink
+            className={({ isActive }) => (isActive ? "active" : "disable")}
+            to="/singUp"
+          >
+            Sing up
+          </NavLink>
+        )}
       </div>
     </nav>
   );
