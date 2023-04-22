@@ -1,21 +1,26 @@
 import React, { useContext, useState } from "react";
 import "./login.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
   const [error, setError] = useState("");
   const { login, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const handleLogin = (event) => {
     event.preventDefault();
     const from = event.target;
     const email = from.email.value;
     const password = from.password.value;
+    const prevPage = location?.state?.location?.pathname;
+    console.log(prevPage);
     login(email, password).then((result) => {
       const loggedUser = result.user;
       toast("User log in successful");
+      navigate(prevPage || "/");
       from.reset();
     });
     console.log(email, password);

@@ -28,7 +28,7 @@ const Header = () => {
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? "active" : "disable")}
-          to="/Manage-Inventory"
+          to="/inventory"
         >
           Manage Inventory
         </NavLink>

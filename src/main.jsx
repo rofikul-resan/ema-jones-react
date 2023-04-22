@@ -13,6 +13,8 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AuthProvider from "./components/provider/AuthProvider";
 import Checkout from "./components/shop/Checkout/Checkout";
+import PrivetRoute from "./components/provider/PrivetRoute";
+import Inventory from "./components/Header/Invantory/Inventory";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,7 +31,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/checkout",
-        element: <Checkout></Checkout>,
+        element: (
+          <PrivetRoute>
+            <Checkout></Checkout>
+          </PrivetRoute>
+        ),
+      },
+      {
+        path: "/inventory",
+        element: (
+          <PrivetRoute>
+            <Inventory></Inventory>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/login",
