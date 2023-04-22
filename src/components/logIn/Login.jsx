@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
-  const [error, setError] = useState("");
   const { login, setUser, singInByGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
