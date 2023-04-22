@@ -6,25 +6,36 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const Login = () => {
   const [error, setError] = useState("");
-  const { login, setUser } = useContext(AuthContext);
+  const { login, setUser, singInByGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const prevPage = location?.state?.location?.pathname;
 
   const handleLogin = (event) => {
     event.preventDefault();
     const from = event.target;
     const email = from.email.value;
     const password = from.password.value;
-    const prevPage = location?.state?.location?.pathname;
     console.log(prevPage);
-    login(email, password).then((result) => {
-      const loggedUser = result.user;
-      toast("User log in successful");
-      navigate(prevPage || "/");
-      from.reset();
-    });
-    console.log(email, password);
+    login(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        toast("User log in successful");
+        navigate(prevPage || "/");
+        from.reset();
+      })
+      .catch((error) => toast(error.massage));
   };
+
+  const loginByGoogle = () => {
+    singInByGoogle()
+      .then((result) => {
+        navigate(prevPage || "/");
+        toast("User log in successful");
+      })
+      .catch((error) => toast(error.massage));
+  };
+
   return (
     <div className="from-contener">
       <form onSubmit={handleLogin}>
@@ -54,7 +65,7 @@ const Login = () => {
       <div className="or-line">
         <p>or</p>
       </div>
-      <button className="google-btn">
+      <button onClick={loginByGoogle} className="google-btn">
         <img src="./google.svg" alt="" />
         <p> Continue with Google</p>
       </button>

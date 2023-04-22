@@ -5,7 +5,6 @@ import { toast } from "react-toastify";
 
 const UserInfo = ({ user }) => {
   const [showUser, setShowUser] = useState(false);
-  console.log(user);
   const { logOut, setUser } = useContext(AuthContext);
 
   const handleLogOut = () => {

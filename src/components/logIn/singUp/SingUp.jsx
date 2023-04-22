@@ -1,14 +1,16 @@
 import React, { useContext } from "react";
 import "../login.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const SingUp = () => {
-  const [error, setError] = useState("");
-  const { createUserByEmail, setUser } = useContext(AuthContext);
-  console.log(createUserByEmail);
+  const { createUserByEmail, singInByGoogle } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const prevPage = location?.state?.location?.pathname;
+  console.log(prevPage);
 
   const handleSingUp = (event) => {
     event.preventDefault();
@@ -34,8 +36,15 @@ const SingUp = () => {
       toast("Make sure your conform password ");
       return;
     }
+  };
 
-    console.log(email, password, conformPass);
+  const loginByGoogle = () => {
+    singInByGoogle()
+      .then((result) => {
+        navigate(prevPage || "/");
+        toast("User log in successful");
+      })
+      .catch((error) => toast(error.massage));
   };
 
   return (
@@ -75,7 +84,7 @@ const SingUp = () => {
         <div className="or-line">
           <p>or</p>
         </div>
-        <button className="google-btn">
+        <button onClick={loginByGoogle} className="google-btn">
           <img src="./google.svg" alt="" />
           <p> Continue with Google</p>
         </button>
