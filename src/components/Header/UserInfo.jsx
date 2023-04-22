@@ -11,7 +11,6 @@ const UserInfo = ({ user }) => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        setUser(null);
         toast("Log Out successful");
       })
       .catch((error) => {

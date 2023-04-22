@@ -5,7 +5,7 @@ import ProductCard from "./ProductCard/ProductCard";
 import "./Shop.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Shop = () => {
   const [cardsData, setCardsData] = useState([]);
@@ -59,7 +59,7 @@ const Shop = () => {
       </div>
       <ProductCart cartData={cart}>
         <button
-          onClick={() => navigation("/Order-Review")}
+          onClick={() => navigation("/order-Review")}
           className="proceed-btn"
         >
           Review Order <FontAwesomeIcon icon={faArrowRight} />

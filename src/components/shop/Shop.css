@@ -14,7 +14,7 @@
     position: sticky;
     top: 67px;
     background: #ffe0b3;
-    height: calc(100vh - 67px);
+    z-index: 1;
 }
 
 .shop-contener::-webkit-scrollbar {

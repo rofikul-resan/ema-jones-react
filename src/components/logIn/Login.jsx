@@ -15,9 +15,8 @@ const Login = () => {
     const password = from.password.value;
     login(email, password).then((result) => {
       const loggedUser = result.user;
-      setUser(loggedUser);
       toast("User log in successful");
-      console.log(loggedUser);
+      from.reset();
     });
     console.log(email, password);
   };

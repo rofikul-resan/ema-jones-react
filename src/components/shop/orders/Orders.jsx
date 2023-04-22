@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ProductCart from "../cart-contener/ProductCart";
 import "../Shop.css";
 import "./Orders.css";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import OrderedProduct from "./OrderedProduct";
 import { deleteShoppingCart, removeFromDb } from "../../../utilities/fakedb";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -11,6 +11,7 @@ import { faCreditCardAlt } from "@fortawesome/free-solid-svg-icons";
 const Orders = () => {
   const loaderCart = useLoaderData();
   const [cart, setCart] = useState(loaderCart);
+  const navigation = useNavigate();
 
   function deleteFromCart(id) {
     const clickItem = cart.find((pd) => pd.id === id);
@@ -38,7 +39,7 @@ const Orders = () => {
         ))}
       </div>
       <ProductCart clearCartData={clearCartData} cartData={cart}>
-        <button className="proceed-btn">
+        <button onClick={() => navigation("/checkout")} className="proceed-btn">
           Proceed Checkout <FontAwesomeIcon icon={faCreditCardAlt} />
         </button>
       </ProductCart>

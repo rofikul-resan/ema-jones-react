@@ -12,6 +12,7 @@ import SingUp from "./components/logIn/singUp/SingUp";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AuthProvider from "./components/provider/AuthProvider";
+import Checkout from "./components/shop/Checkout/Checkout";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,9 +23,13 @@ const router = createBrowserRouter([
         element: <Shop></Shop>,
       },
       {
-        path: "/Order-Review",
+        path: "/order-Review",
         element: <Orders></Orders>,
         loader: cartProductLoader,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout></Checkout>,
       },
       {
         path: "/login",

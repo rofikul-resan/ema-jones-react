@@ -22,7 +22,7 @@ const Header = () => {
         </NavLink>
         <NavLink
           className={({ isActive }) => (isActive ? "active" : "disable")}
-          to="/Order-Review"
+          to="/order-Review"
         >
           Order Review
         </NavLink>

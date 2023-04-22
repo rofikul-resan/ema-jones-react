@@ -24,7 +24,6 @@ const SingUp = () => {
         createUserByEmail(email, password)
           .then((result) => {
             const loggedUser = result.user;
-            setUser(loggedUser);
             toast("Account create Successful");
           })
           .catch((error) => {
@@ -70,7 +69,7 @@ const SingUp = () => {
           </button>
         </form>
         <p className="option-text">
-          Already have an account? <Link to={"/singUp"}>Login</Link>{" "}
+          Already have an account? <Link to={"/login"}>Login</Link>{" "}
         </p>
 
         <div className="or-line">
