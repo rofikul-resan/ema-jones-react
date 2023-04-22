@@ -32,25 +32,27 @@ const Header = () => {
         >
           Manage Inventory
         </NavLink>
-        <div className="nav-btn">
-          {location.pathname !== "/login" ? (
-            <NavLink
-              className={({ isActive }) => (isActive ? "active" : "disable")}
-              to="/login"
-            >
-              Login
-            </NavLink>
-          ) : (
-            <NavLink
-              className={({ isActive }) => (isActive ? "active" : "disable")}
-              to="/singUp"
-            >
-              Sing up
-            </NavLink>
-          )}
-        </div>
-
-        <UserInfo user={user} />
+        {user ? (
+          <UserInfo user={user} />
+        ) : (
+          <div className="nav-btn">
+            {location.pathname !== "/login" ? (
+              <NavLink
+                className={({ isActive }) => (isActive ? "active" : "disable")}
+                to="/login"
+              >
+                Login
+              </NavLink>
+            ) : (
+              <NavLink
+                className={({ isActive }) => (isActive ? "active" : "disable")}
+                to="/singUp"
+              >
+                Sing up
+              </NavLink>
+            )}
+          </div>
+        )}
       </div>
     </nav>
   );

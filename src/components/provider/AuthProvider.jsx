@@ -3,6 +3,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 import firebaseApp from "../../assets/firebase/firebase.config";
 
@@ -19,11 +20,16 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
+  const logOut = () => {
+    return signOut(auth);
+  };
+
   const authValue = {
     user,
     setUser,
     createUserByEmail,
     login,
+    logOut,
   };
 
   return (

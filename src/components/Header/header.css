@@ -19,6 +19,11 @@
     color: white;
 }
 
+.nav-link {
+    display: flex;
+    align-items: center;
+}
+
 .nav-link a {
     text-decoration: none;
     margin: 0 20px;
@@ -39,6 +44,63 @@
 }
 
 
+
+/* user-information components style  */
+
+.user-info {
+    color: #fff;
+    position: relative;
+}
+
+.user-info>img {
+    height: 40px;
+    border-radius: 50%;
+}
+
+.user-info .userPopUp {
+    position: absolute;
+    top: 60px;
+    right: -55px;
+    background: #af45bd;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 11px 0px rgba(53, 51, 51, 0.7);
+    z-index: 2;
+}
+
+.userPopUp button {
+    background: #158011;
+    color: antiquewhite;
+    border-radius: 8px;
+    padding: 10px;
+    border: 0;
+    z-index: 2;
+    width: 100%;
+}
+
+.user-info p {
+    margin-bottom: 10px;
+    margin-right: 10px;
+    border-bottom: 1px solid wheat;
+    padding-bottom: 5px;
+}
+
+.hide {
+    display: none;
+}
+
+
+.userPopUp::after {
+    content: '';
+    position: absolute;
+    top: -23px;
+    right: 46px;
+    z-index: 1;
+    border-top: 26px solid #af45bd;
+    border-left: 15px solid transparent;
+    transform: rotate(160deg);
+}
+
 @media only screen and (max-width: 600px) {
     .header {
         flex-direction: column;
@@ -47,6 +109,8 @@
     }
 
     .nav-link {
+        flex-direction: column;
+        align-items: start;
         width: 100%;
     }
 

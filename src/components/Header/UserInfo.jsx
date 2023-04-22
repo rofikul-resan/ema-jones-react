@@ -1,17 +1,31 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./header.css";
+import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const UserInfo = ({ user }) => {
   const [showUser, setShowUser] = useState(false);
   console.log(user);
+  const { logOut, setUser } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        setUser(null);
+        toast("Log Out successful");
+      })
+      .catch((error) => {
+        toast(error.massage);
+      });
+  };
 
   return (
-    <div className="user-info">
-      <img src={""} alt="" />
-      <div className={`userPopUp ${showUser ? "Show" : "hide"}`}>
-        <p>{user.displayName ? user.displayName : "Set Your name"}</p>
+    <div onClick={() => setShowUser(!showUser)} className="user-info">
+      <img src={user.photoURL ? user.photoURL : "./ema-profile.jpg"} alt="" />
+      <div className={`userPopUp ${!showUser && "hide"}`}>
+        <p>{user.displayName ? user.displayName : "Your name"}</p>
         <p>{user.email}</p>
-        <button>Log Out</button>
+        <button onClick={handleLogOut}>Log Out</button>
       </div>
     </div>
   );
